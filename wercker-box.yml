@@ -1,18 +1,18 @@
 name: meteor
 version: 0.4.0
 type: main
-platform: ubuntu@12.04
+platform: ubuntu@14.04
 description: box for building testing and deploying meteor apps
 keywords:
   - meteor
   - javascript
   - nodejs
 packages:
-  - meteor@0.6.4
+  - meteor@1.0.5
 script: |
 script: |-
   echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list
-  echo 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | sudo tee /etc/apt/sources.list.d/nodejs.list
+  echo 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main' | sudo tee /etc/apt/sources.list.d/nodejs.list
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv C7917B12
   sudo apt-get update
@@ -47,9 +47,6 @@ script: |-
   sudo apt-get install git
   type git || { echo "Meteorite not found after installation! Terminating..."; exit 1; }
   
-    # Install laika
-  sudo npm install -g laika
-  type laika || { echo "Laika not found after installation! Terminating..."; exit 1; }
 env:
-  NODE_VERSION: "0.10.11"
-  METEOR_VERSION: "0.6.4"
+  NODE_VERSION: "0.10.32"
+  METEOR_VERSION: "1.0.5"
